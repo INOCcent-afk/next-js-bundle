@@ -7,6 +7,8 @@ import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import { addUsers } from "../../redux/Users.slice";
 import { getUsers } from "../../utils/api/getUsers";
 
+import styled from "styled-components";
+
 type Props = {
   users: any;
 };
@@ -33,9 +35,9 @@ const UsersList: FC<Props> = ({ users }: Props) => {
       ) : (
         <>
           {selectUsers.map((user) => (
-            <Link href={`users/${user.id}`} key={user.id}>
-              {user.name}
-            </Link>
+            <StyledContainer key={user.id}>
+              <Link href={`users/${user.id}`}>{user.name}</Link>
+            </StyledContainer>
           ))}
         </>
       )}
@@ -44,3 +46,16 @@ const UsersList: FC<Props> = ({ users }: Props) => {
 };
 
 export default UsersList;
+
+const StyledContainer = styled.div`
+  background: #000;
+  margin: 10px 40px 10px 0;
+  padding: 10px 50px;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #fff;
+
+  &:hover {
+    background: maroon;
+  }
+`;
