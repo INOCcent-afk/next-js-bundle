@@ -6,13 +6,14 @@ import PostsList from "../../containers/PostsList";
 import { getUsers } from "../../utils/api/getUsers";
 import { getPosts } from "../../utils/api/getPosts";
 
+import styled from "styled-components";
+
 const index = ({ users, posts }) => {
   return (
-    <div>
-      <h1>Users Page</h1>
+    <StyledProductsContainer>
       <UsersList users={users} />
       <PostsList posts={posts} />
-    </div>
+    </StyledProductsContainer>
   );
 };
 
@@ -24,3 +25,14 @@ export const getStaticProps = async () => {
 
   return { props: { users, posts } };
 };
+
+export const StyledProductsContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+
+  & > div {
+    display: flex;
+    flex-basis: 50%;
+    flex-direction: column;
+  }
+`;

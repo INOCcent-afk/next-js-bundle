@@ -21,7 +21,7 @@ const Header: FC = () => {
           <a>Services</a>
         </Link>
         <Link href="/users" passHref>
-          <a>Users</a>
+          <a>Containers</a>
         </Link>
       </ul>
       <h1>{count}</h1>

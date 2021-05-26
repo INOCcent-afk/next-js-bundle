@@ -1,4 +1,6 @@
 import React, { FC } from "react";
+import Link from "next/link";
+
 import { useQuery } from "react-query";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import { addPosts } from "../../redux/Posts.slice";
@@ -29,15 +31,17 @@ const PostsList: FC<Props> = ({ posts }: Props) => {
   }, [data, dispatch]);
 
   return (
-    <>
+    <div>
       <h1>POSTS LISTS:</h1>
       {selectPosts.map((post) => (
-        <div key={post.id}>
-          <h1>{post.title}</h1>
-          <p>{post.body}</p>
-        </div>
+        <Link href={`posts/${post.id}`} key={post.id}>
+          <div>
+            <h1>{post.title}</h1>
+            <p>{post.body}</p>
+          </div>
+        </Link>
       ))}
-    </>
+    </div>
   );
 };
 

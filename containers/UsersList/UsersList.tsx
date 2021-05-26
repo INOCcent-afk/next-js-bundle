@@ -1,4 +1,6 @@
 import React, { FC } from "react";
+
+import Link from "next/link";
 import { useQuery } from "react-query";
 
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
@@ -24,18 +26,20 @@ const UsersList: FC<Props> = ({ users }: Props) => {
   }, [data, dispatch]);
 
   return (
-    <>
+    <div>
       <h1>USERS LISTS:</h1>
       {isFetching ? (
         <h1>Loading....</h1>
       ) : (
         <>
           {selectUsers.map((user) => (
-            <p key={user.id}>{user.name}</p>
+            <Link href={`users/${user.id}`} key={user.id}>
+              {user.name}
+            </Link>
           ))}
         </>
       )}
-    </>
+    </div>
   );
 };
 
