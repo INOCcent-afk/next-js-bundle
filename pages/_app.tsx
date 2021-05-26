@@ -1,7 +1,7 @@
 import Layout from "../containers/Layout";
 
 import { useEffect } from "react";
-import { useRouter } from "next/router";
+import Router from "next/router";
 
 //REDUX STORE
 import store from "../redux/store";
@@ -11,10 +11,8 @@ import { QueryClient, QueryClientProvider } from "react-query";
 const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }) {
-  const router = useRouter();
-
   useEffect(() => {
-    router.events.on("routeChangeComplete", () => {
+    Router.events.on("routeChangeComplete", () => {
       window.scroll({
         top: 0,
         left: 0,
@@ -22,7 +20,7 @@ function MyApp({ Component, pageProps }) {
       });
       console.log("change route");
     });
-  }, [router]);
+  }, [Router]);
 
   return (
     <>
