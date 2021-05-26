@@ -21,5 +21,6 @@ export const GlobalStyle = createGlobalStyle`
 
 export const BodyInner = styled.div`
   max-width: 1400px;
+  padding: 10px 50px;
   margin: auto;
 `;

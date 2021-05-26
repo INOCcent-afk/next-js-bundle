@@ -12,13 +12,16 @@ const Header: FC = () => {
     <StyledHeader>
       <ul>
         <Link href="/" passHref>
-          <a className="text-white ml-3">Home</a>
+          <a>Home</a>
         </Link>
         <Link href="/about" passHref>
           <a>About</a>
         </Link>
         <Link href="/services" passHref>
           <a>Services</a>
+        </Link>
+        <Link href="/users" passHref>
+          <a>Users</a>
         </Link>
       </ul>
       <h1>{count}</h1>
