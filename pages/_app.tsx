@@ -1,11 +1,12 @@
 import Layout from "../containers/Layout";
 
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+
 //REDUX STORE
 import store from "../redux/store";
 import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
 
 const queryClient = new QueryClient();
 
@@ -19,8 +20,9 @@ function MyApp({ Component, pageProps }) {
         left: 0,
         behavior: "smooth",
       });
+      console.log("change route");
     });
-  }, []);
+  }, [router]);
 
   return (
     <>

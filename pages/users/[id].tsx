@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { useRouter } from "next/router";
 
 import { getUsers, getSingleUser } from "../../utils/api/getUsers";
+import { useAppSelector } from "../../redux/hook";
 
 type Props = {
   user: any;
