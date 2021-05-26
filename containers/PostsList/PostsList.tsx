@@ -22,7 +22,7 @@ const PostsList: FC<Props> = ({ posts }: Props) => {
   const dispatch = useAppDispatch();
   const selectPosts = useAppSelector((state) => state.posts.data);
 
-  const { data, error, isFetching } = useQuery("posts", getPosts, {
+  const { data } = useQuery("posts", getPosts, {
     initialData: posts,
   });
 
