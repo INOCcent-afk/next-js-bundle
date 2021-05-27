@@ -8,12 +8,24 @@ import { getPosts } from "../../utils/api/getPosts";
 
 import styled from "styled-components";
 
+import { motion } from "framer-motion";
+import { PageAnimate } from "../../animations/PageTransition";
+
 const index = ({ users, posts }) => {
   return (
-    <StyledProductsContainer>
-      <UsersList users={users} />
-      <PostsList posts={posts} />
-    </StyledProductsContainer>
+    <>
+      <motion.div
+        variants={PageAnimate}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+      >
+        <StyledProductsContainer>
+          <UsersList users={users} />
+          <PostsList posts={posts} />
+        </StyledProductsContainer>
+      </motion.div>
+    </>
   );
 };
 
