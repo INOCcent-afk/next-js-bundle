@@ -4,7 +4,7 @@ export const getPosts = () => {
     .catch((error) => ({ error }));
 };
 
-export const getSinglePost = (id: string) => {
+export const getSinglePost = (id: string | string[]) => {
   return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`).then(
     (response) => response.json().catch((error) => ({ error }))
   );

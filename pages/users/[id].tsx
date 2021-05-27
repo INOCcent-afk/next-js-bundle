@@ -2,7 +2,8 @@ import React, { FC } from "react";
 import { useRouter } from "next/router";
 
 import { getUsers, getSingleUser } from "../../utils/api/getUsers";
-import { useAppSelector } from "../../redux/hook";
+import { GetStaticProps, GetStaticPropsResult } from "next";
+import { Params } from "next/dist/next-server/server/router";
 
 type Props = {
   user: any;
@@ -23,7 +24,7 @@ const Details: FC<Props> = ({ user }: Props) => {
 
 export default Details;
 
-export const getStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
   const id = context.params.id;
 
   const data = await getSingleUser(id);
@@ -34,7 +35,7 @@ export const getStaticProps = async (context) => {
 export const getStaticPaths = async () => {
   const users = await getUsers();
 
-  const paths = users.map((user) => {
+  const paths = users.map((user: { id: number }) => {
     return {
       params: { id: user.id.toString() },
     };

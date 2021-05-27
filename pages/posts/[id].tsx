@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { useRouter } from "next/router";
 
 import { getPosts, getSinglePost } from "../../utils/api/getPosts";
+import { GetStaticProps } from "next";
 
 type Props = {
   post: {
@@ -27,7 +28,7 @@ const PostDetail: FC<Props> = ({ post }: Props) => {
 
 export default PostDetail;
 
-export const getStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
   const id = context.params.id;
 
   const data = await getSinglePost(id);
@@ -38,9 +39,9 @@ export const getStaticProps = async (context) => {
 export const getStaticPaths = async () => {
   const posts = await getPosts();
 
-  const paths = posts.map((user) => {
+  const paths = posts.map((post: { id: number }) => {
     return {
-      params: { id: user.id.toString() },
+      params: { id: post.id.toString() },
     };
   });
 
