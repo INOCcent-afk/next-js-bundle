@@ -1,6 +1,10 @@
 import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+  }
+
   html,
   body {
     padding: 0;
@@ -14,9 +18,11 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
-  * {
-    box-sizing: border-box;
+  .spacer { 
+    height: 1500px;
   }
+
+
 `;
 
 export const BodyInner = styled.div`
