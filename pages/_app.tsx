@@ -4,6 +4,7 @@ import Layout from "../containers/Layout";
 import store from "../redux/store";
 import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { AnimatePresence } from "framer-motion";
 
 const queryClient = new QueryClient();
 
@@ -13,7 +14,9 @@ function MyApp({ Component, pageProps }) {
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>
           <Layout>
-            <Component {...pageProps} />
+            <AnimatePresence exitBeforeEnter>
+              <Component {...pageProps} />
+            </AnimatePresence>
           </Layout>
         </Provider>
       </QueryClientProvider>
