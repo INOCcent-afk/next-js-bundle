@@ -20,12 +20,14 @@ const variant = {
     transition: {
       staggerChildren: 0.1,
       when: "afterChildren",
+      staggerDirection: -1,
     },
   },
   start: {
     opacity: 1,
     transition: {
       staggerChildren: 0.1,
+
       when: "beforeChildren",
     },
   },
