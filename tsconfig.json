@@ -23,7 +23,7 @@
     "**/*.ts",
     "**/*.tsx",
    "pages/_app.tsx" 
-  ],
+, "pages/_document.js"  ],
   "exclude": [
     "node_modules"
   ]
