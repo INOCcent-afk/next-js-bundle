@@ -2,8 +2,7 @@ import React, { FC } from "react";
 import { useRouter } from "next/router";
 
 import { getUsers, getSingleUser } from "../../utils/api/getUsers";
-import { GetStaticProps, GetStaticPropsResult } from "next";
-import { Params } from "next/dist/next-server/server/router";
+import { GetStaticProps } from "next";
 
 type Props = {
   user: any;

@@ -1,12 +1,11 @@
 import React from "react";
 
-import { getPosts } from "../utils/api/getPosts";
-import { getUsers } from "../utils/api/getUsers";
+import { getPosts } from "../../utils/api/getPosts";
+import { getUsers } from "../../utils/api/getUsers";
 
-import styled from "styled-components";
-import UsersList from "../containers/UsersList";
+import UsersList from "../../containers/UsersList";
 
-const email = ({ users, posts }) => {
+const email = ({ users }) => {
   return (
     <>
       <UsersList users={users} />
